@@ -153,6 +153,20 @@ public class InmuebleControlador {
 
         return "inmuebleList.html";
     }
+    
+     @GetMapping("/lista/busquedaVenta") //localhost:8080/inmueble/lista/
+    public String listarbúsquedaVenta(Tipo tipo, Integer ambientes, Double maxprecioVenta,Double minprecioVenta, ModelMap modelo) {
+
+        List<Inmueble> inmuebles = inmuebleServicio.listarBusquedaVenta(tipo, ambientes, maxprecioVenta, minprecioVenta);
+
+        modelo.addAttribute("inmuebles", inmuebles);
+
+        return "inmuebleList.html";
+    }
+    
+    
+    
+    
     @PreAuthorize("hasAnyRole('ROLE_ENTE')")
     @GetMapping("/listar/{id}") 
     public String listarGeneral(HttpSession session,ModelMap modelo,@PathVariable String id) {

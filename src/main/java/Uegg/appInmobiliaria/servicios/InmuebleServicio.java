@@ -168,6 +168,12 @@ public class InmuebleServicio {
         List<Inmueble> inmueblesEnte = inmuebleRepositorio.buscarPorEnte(id);
         return inmueblesEnte;
     }
+    
+    public List<Inmueble> listarBusquedaVenta (Tipo tipo, Integer ambientes, Double maxprecioVenta,Double minprecioVenta)
+           {
+        List<Inmueble> inmueblesEnte = inmuebleRepositorio.busquedaPersonalizadaVenta(tipo, ambientes, maxprecioVenta, minprecioVenta);
+        return inmueblesEnte;
+    }
     public void validar(Tipo tipo, String ubicacion, Double superficie, Integer ambientes, String descripcion, Double precioVenta, Double precioAlquiler,
             String tipoOferta) throws MyException {
         
